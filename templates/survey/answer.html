@@ -1,0 +1,44 @@
+{% extends 'base_layout.html' %}
+{% block title %}Answer View{% endblock %}
+{% block content %}
+
+    <h1 class="text-center">Please answer the following question</h1>
+
+    <div class="col-md-6 offset-md-3">
+        <div class="col-lg-12">
+
+            <h2 class="text-center">{{ question.question }}</h2>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="site-form">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="answer" value="option1">
+                        {{ question.option_one }}
+                    </label> <br/>
+                    <label>
+                        <input type="radio" name="answer" value="option2">
+                        {{ question.option_two }}
+                    </label><br/>
+                    <label>
+                        <input type="radio" name="answer" value="option3">
+                        {{ question.option_three }}
+                    </label><br/>
+                    <label>
+                        <input type="radio" name="answer" value="option4">
+                        {{ question.option_four }}
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+
+            </div>
+
+            <hr />
+            <a href="{% url 'list' %}" class="btn btn-info">Return To List</a>
+        </form>
+
+    </div>
+
+{% endblock %}

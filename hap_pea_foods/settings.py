@@ -23,9 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'v)))=itm_ogjzo84br$kvm=w&au%9%t6og35cmeij@s7y#lp+4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#DEBUG = True
+
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['happeafoods-test.herokuapp.com',  '127.0.0.1' ]
+#ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
 
 
 # Application definition
@@ -37,13 +40,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_google_maps',
+    'easy_maps',
+    'qr_code',
     'stories',
     'accounts',
     'donations',
+    'events',
+    'survey',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,12 +131,36 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_ROOT is new for the Heroku deployment
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+#STATICFILES_STORAGE added for Heroku Deplpyment.
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+STATIC_URL = 'https://happeafoodsmedia.s3-us-west-1.amazonaws.com/static/'
+
+
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'static'),
+#)
 
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+GOOGLE_MAPS_API_KEY = 'AIzaSyCPxWrUymIOfqDXHXPMDjLCQsKaYA8T88g'
+EASY_MAPS_GOOGLE_KEY = 'AIzaSyCPxWrUymIOfqDXHXPMDjLCQsKaYA8T88g'
+EASY_MAPS_CENTER = (33.42431902487269, -111.92808355340672)
+
+
+LOGIN_REDIRECT_URL = 'accounts/login'
+
+# password reset
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'happeafoodsasu@gmail.com'
+EMAIL_HOST_PASSWORD = 'lncp ztps gfyj kukq'

@@ -1,11 +1,11 @@
-{% extends 'base_layout.html '%}
+{% extends 'base_layout.html' %}
 {% block title %} Hap-Pea Foods | Home {% endblock %}
 {% block content %}
 {% load static %}
 
   <!-- slider -->
 
-  <div class="slider">
+  <div class="slider container"> 
     <figure>
       <img src="{% static 'handout.jpg' %}">
       <img src="{% static 'prepare.jpg' %}">
@@ -22,7 +22,7 @@
         <h1>What is a food bank?</h1>
 
         <p>A food bank is a non-profit organization that collects and distributes food to hunger-relief charities. Food banks act as food storage and distribution depots for smaller front line agencies; and usually do not themselves give out food directly to people struggling with hunger.</p>
-
+        <br/>
         <p>Food banks in the U.S. are very diverse – from small operations serving people spread out across large rural areas to very large facilities that store and distribute many millions of pounds of food each year, and everything in between. A variety of factors impact how food banks work, from the size of the facility to the number of staff members.  But, one thing all food banks have in common is that they rely on donors and volunteers to carry out their day-to-day operations. </p>
 
         <h1>How does the Hap-Pea Foods network of food banks work?</h1>
@@ -68,32 +68,19 @@
 
       </div> <!-- end leftblock -->
 
-      <div class="calendar">
-        <h1>Calendar</h1> <!-- Module insert here for calendar -->
-        <div class="event">
-          <h3>Event 1</h3>
-          <p>Location: Somewhere</p>
-          <p>Date and Time: 1/1/000  12:00pm est</p>
-          <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus enim euismod vehicula blandit. Aliquam ac sem nisi. Curabitur eget mi quis dui vulputate efficitur. Mauris mi justo, tincidunt aliquet dapibus vitae, tristique sit amet neque. Etiam bibendum eros nec elementum pharetra. Vestibulum eget mi vel velit ultricies ullamcorper. Ut congue at sem eu tincidunt. </p>
+      <div class="home-calendar">
+        <h1>Calendar of Events<a href="https://www.timeanddate.com/calendar/"><i class="far fa-calendar-alt" style="color: black"></i></a></h1> <!-- Module insert here for calendar -->
+
+        <div class="events-grid" style="margin-top: 20px; display: grid; grid-template-columns: 300px 300px; grid-gap: 20px;">
+          {% for event in event_list %}
+            <div class="event" style="border: 3px solid #E32636; padding: 3%;">
+              <h2 class="text-center">{{event.eventTitle}}</h2>
+              <p>{{event.eventDate}}</p>
+              <p> Start: {{event.startTime}} End: {{event.endTime}}</p>
+            </div>
+          {% endfor %}
         </div>
-        <div class="event">
-          <h3>Event 2</h3>
-          <p>Location: Somewhere</p>
-          <p>Date and Time: 1/1/000  12:00pm est</p>
-          <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus enim euismod vehicula blandit. Aliquam ac sem nisi. Curabitur eget mi quis dui vulputate efficitur. Mauris mi justo, tincidunt aliquet dapibus vitae, tristique sit amet neque. Etiam bibendum eros nec elementum pharetra. Vestibulum eget mi vel velit ultricies ullamcorper. Ut congue at sem eu tincidunt. </p>
-        </div>
-        <div class="event">
-          <h3>Event 3</h3>
-          <p>Location: Somewhere</p>
-          <p>Date and Time: 1/1/000  12:00pm est</p>
-          <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus enim euismod vehicula blandit. Aliquam ac sem nisi. Curabitur eget mi quis dui vulputate efficitur. Mauris mi justo, tincidunt aliquet dapibus vitae, tristique sit amet neque. Etiam bibendum eros nec elementum pharetra. Vestibulum eget mi vel velit ultricies ullamcorper. Ut congue at sem eu tincidunt. </p>
-        </div>
-        <div class="event">
-          <h3>Event 4</h3>
-          <p>Location: Somewhere</p>
-          <p>Date and Time: 1/1/000  12:00pm est</p>
-          <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus enim euismod vehicula blandit. Aliquam ac sem nisi. Curabitur eget mi quis dui vulputate efficitur. Mauris mi justo, tincidunt aliquet dapibus vitae, tristique sit amet neque. Etiam bibendum eros nec elementum pharetra. Vestibulum eget mi vel velit ultricies ullamcorper. Ut congue at sem eu tincidunt. </p>
-        </div>
+
       </div> <!-- end calendar -->
     </div> <!-- end column -->
   </div> <!-- end l_container -->

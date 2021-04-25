@@ -1,0 +1,1011 @@
+* {
+  margin: 0;
+  padding:0;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+/* Header Container */
+header {
+  background: #FFF;
+}
+
+.head-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.head-container a {
+  padding-left: 10px;
+}
+
+.sm i {
+  padding: 10px 10px;
+}
+
+.navbar {
+  min-height: 130px;
+  background-color: #5DAAB2;
+}
+
+.navbar-brand {
+  padding: 0 15px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navimage{
+  max-height: 125px;
+  max-width: 125px;
+}
+
+/* change the brand and text color */
+.navbar-custom,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+/* for dropdown only - change the color of droodown */
+.navbar-custom .dropdown-menu {
+    background-color: #5DAAB2;
+}
+.navbar-custom .dropdown-item {
+    color: #ffffff;
+}
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+    color: #333333;
+    background-color: #5DAAB2;
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu .navlink {
+    position: absolute !important;
+}
+
+/* Wrapper */
+.wrapper_container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.wrapper_container h1 {
+  text align: center;
+  margin: 100px auto;
+  font-size: 2.4em;
+}
+
+/* Footer Container */
+footer {
+  background: #5DAAB2;
+}
+
+.foot-container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.foot-columns {
+  display: flex;
+  margin: 1em 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about {
+  width: 20%;
+}
+
+.statement img {
+  height: 100px;
+}
+
+.statement p {
+  font-size: 14px;
+  line-height: 1rem;
+}
+
+.foot-links {
+  width: 5%;
+}
+
+.foot-links ul, .foot-links-2 ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.foot-links li, .foot-links-2 li {
+  padding: 5px 0;
+}
+
+.foot-links a:link, .foot-links-2 a:link {
+  color: #FFF;
+  width: 10%;
+  font-size: 14px;
+}
+
+.foot-links a:visited, .foot-links-2 a:visited {
+  color: #FFF;
+}
+
+.subscribe {
+  width: 15%;
+}
+
+.subscribe button:hover {
+  background: #CCC;
+}
+
+.subscribe input[type=email] {
+  font-size: 14px;
+}
+
+.subscribe button[type=submit] {
+  font-size: 14px;
+}
+
+.contact {
+  width: 20%;
+}
+
+.contact h2 {
+  color: #FFF;
+  padding-bottom: 10px;
+  font-size: 16px;
+}
+
+.contact ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact a, li {
+  font-size: 14px;
+}
+
+.contact i {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.copyright {
+  text-align: center;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.copyright p {
+  font-size: 12px;
+}
+
+.copyright a {
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+
+
+
+/* --------------------  CSS for other pages starts here ------------------- */
+
+/* Homepage CSS */
+.row1, .row2, .row3, .row4{
+  box-sizing: border-box;
+  display: flex;
+}
+
+.image-col {
+  flex-basis: 10%;
+  padding-top: 10px;
+}
+
+.image-col img {
+  height: 100px;
+  width: 100px;
+}
+
+.text {
+  padding-top: 10px;
+  padding-left: 100px;
+}
+
+.l_container {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.column {
+  display: flex;
+}
+
+.leftblock {
+  flex-basis: 250%;
+  padding-top: 10px;
+}
+
+.home-calendar {
+  padding-top: 10px;
+  padding-left: 100px;
+}
+
+.home-calendar i {
+  font-size: 32px;
+  padding: 0 20px;
+}
+
+.home-calendar .event {
+  padding-bottom: 20px;
+}
+
+.home-calendar h3 {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+/* slider */
+.slider {
+  overflow: hidden;
+}
+
+.slider figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  top: 15px;
+  left: 0;
+  animation: 20s slider infinite;
+}
+
+.slider figure img {
+    float: left;
+    width: 20%;
+    height: 600px;
+    object-fit: fill;
+}
+
+@keyframes slider {
+  0% { left: 0; }
+  20%{ left:0; }
+  25% { left: -100%; }
+  45% { left: -100%; }
+  50% { left: -200%; }
+  70% { left: -200%; }
+  75% { left: -300%; }
+  95% { left: -300%; }
+  100% { left: -400%; }
+
+}
+
+/* Stories_list css */
+
+.createstory button {
+  background-color: #FF471A; /* r-orange */
+  border: none;
+  color: #FFF;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.stories {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.story {
+  padding: 10px;
+  border: 2px solid #FF704D; /* grapefruit */
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.story h2 {
+  font-size: 1.2em;
+}
+
+.story .author {
+  padding: 10px;
+  background: #FF704D; /* grapefruit */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  color: #FBFBFF; /* whitish */
+}
+
+/* Story-details css */
+.story-detail .story {
+  padding: 0;
+}
+
+.story-detail .story img {
+  max-width: 100%;
+}
+
+.story-detail .story h1 {
+  text-align: center;
+  margin: 20px auto;
+  font-size: 2em;
+}
+
+.story-detail .story p {
+  text-align: center;
+}
+
+/* Stories_create css */
+
+/* site-form css All Forms*/
+.site-form {
+  margin: 15px 30%;
+  border: 10px solid #FF704D; /* grapefruit */
+  border-style: ridge;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.site-form h4 {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.site-form input, .site-form textarea {
+  display: block;
+  margin: 20px 0 20px 0;
+  padding: 10px;
+}
+
+a.highlight {
+  border: 1px solid #FF704D;  /* grapefruit */
+  padding: 10px;
+  border-radius: 4px;
+  color: #FF704D;  /* grapefruit */
+}
+
+.helptext, .helptext ul {
+  margin: 0 auto 20px;
+  color: #000; /* black */
+  font-size: 0.9em;
+  display: block;
+}
+
+.errorlist {
+  display: none;
+  padding: 0;
+}
+
+.errorlist li {
+  padding: 10px;
+  list-style-type: none;
+  border: 1px solid #E32636; /* Alizarin Crimson */
+  color: #E32636; /* Alizarin Crimson */
+  margin: 10px 0;
+}
+
+.site-form input[type="submit"] {
+  background: #FF704D; /* grapefruit */
+  border: 0;
+  color: #000;
+  font-size: 1.2em;
+  border-radius: 4px;
+  margin: 20px 0;
+  padding: 10px 30px;
+}
+
+.site-form input[type=submit]:hover {
+  color: #FBFBFF;
+  cursor: pointer;
+}
+
+/* Partners page CSS */
+
+.partners img {
+  padding-left: 100px;
+  padding-bottom: 100px;
+}
+
+.partner-main h1 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Volunteer page CSS */
+
+.v_head {
+  text-align: center;
+}
+
+.v_img_banner img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.v_content h2 {
+  font-size: 28px;
+  padding: 15px;
+  text-align: center;
+  margin: 0 15%;
+}
+
+.v_content h4 {
+  padding: 15px;
+  text-align: center;
+  margin: 0 15%;
+}
+
+.v_options h3 {
+  color: #084F6C;
+  text-align: center;
+  font-size: 36px;
+  margin: 5% auto;
+}
+
+.v_options h4 {
+  text-align: center;
+}
+
+.v_options ul {
+  list-style-type: none;
+  display: block;
+  margin: 0 10%;
+}
+
+.v_options li {
+  display: inline-block;
+  margin: 0;
+  padding: 30px;
+}
+
+.v_options img {
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.v_links {
+  text-align: center;
+  margin: auto;
+}
+
+.v_links a {
+  font-size: 26px;
+  padding: 20px;
+}
+
+/* Donations page CSS */
+
+.d_img img {
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+/* About page CSS */
+.about-page h1 {
+  text-align: center;
+}
+
+.about-page p {
+  font-size: 18px;
+  padding: 20px 0;
+}
+
+
+/* User Portal page CSS */
+
+
+/* Contact Us page */
+
+.c-information {
+  text-align: center;
+}
+
+.c-information h2 {
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.c-information i {
+  font-size: 28px;
+  padding: 0 10px;
+}
+
+.c-form-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto 20px;
+}
+
+.c-form-head  hr {
+  width: 300px;
+  height: 5px;
+  background-color: #3C7980;
+}
+
+.c-form-head  i {
+  font-size: 100px;
+  padding: 0 20px;
+}
+
+.contact_form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border: 5px solid #3C7980;
+  margin: 0 30%;
+}
+
+.contact_form input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+.contact_form input[type=submit] {
+  background-color: #FF471A;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact_form input[type=submit]:hover {
+  background-color: #FF704D;
+}
+
+.contact_form h3, h4{
+  text-align: center;
+  padding: 10% 0;
+}
+
+/* non discrimination statement page */
+
+.nds h1 {
+  text-align: center;
+}
+
+.nds .nds-column-1 h4 {
+  padding-bottom: 10px;
+}
+
+.nds .nds-column-2 ul{
+  margin-left: 35%;
+}
+
+.nds .nds-column-2 ul li {
+  list-style: none;
+  font-size: 28px;
+}
+
+.nds .nds-column-2 ul {
+  padding: 20px 0;
+}
+
+.nds .nds-column-2 i {
+  font-size: 28px;
+  padding-right: 20px;
+}
+
+/* Facts and Media page */
+.facts h1 {
+  text-align: center;
+}
+
+.facts p {
+  font-size: 24px;
+  padding: 10px 0;
+}
+
+.facts a {
+  font-size: 24px;
+}
+
+.facts hr {
+  height: 5px;
+  margin: 20px 0;
+  background-color: #3C7980;
+}
+
+.facts .article-1 {
+  margin: 0 20%;
+}
+
+.facts .article-1 h2 {
+  font-size: 24px;
+  padding: 20px 0;
+}
+
+.facts .article-1 span {
+  color: #B3B3B3;
+  font-size: 24px;
+}
+
+.facts .article-1 p {
+  font-size: 18px;
+  padding: 10px 0;
+}
+
+.facts .article-1 a {
+  font-size: 18px;
+}
+/* New Article */
+.facts .article-2 {
+  margin: 0 20%;
+}
+
+.facts .article-2 h2 {
+  font-size: 24px;
+  padding: 20px 0;
+}
+
+.facts .article-2 span {
+  color: #B3B3B3;
+  font-size: 24px;
+}
+
+.facts .article-2 p {
+  font-size: 18px;
+  padding: 10px 0;
+}
+
+.facts .article-2 a {
+  font-size: 18px;
+}
+
+/* My Calendar Page */
+
+.calendar {
+  text-align: center;
+}
+
+.calendar i {
+  font-size: 20rem;
+  padding-bottom: 20px;
+}
+
+/* Money Donation page */
+
+.payment {
+  background: #FFF;
+  max-width: 400px;
+  margin: 80px auto;
+  height: auto;
+  padding: 30px;
+  padding-top: 70px;
+  border-radius: 5px;
+  position: relative;
+  border: 1px solid #000;
+}
+
+.payment h2 {
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  color: #000;
+}
+
+.payment_form .label {
+  display: block;
+  color: #555555;
+  margin-bottom: 6px;
+}
+
+.payment_form .input {
+  padding: 13px 0 13px 60px;
+  width: 83%;
+  text-align: left;
+  border: 2px solid #DDDDDD;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  word-wrap: 3px;
+  outline: none;
+  font-size: 16px;
+  color: #555555;
+}
+
+.card-grp {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.card-item {
+  width: 44%;
+}
+
+.space {
+  margin-bottom: 20px;
+}
+
+.icon-relative {
+  position: relative;
+}
+
+.icon-relative .fas,
+.icon-relative .far {
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+  font-size: 20px;
+  color: #555555;
+}
+
+.btn {
+  margin-top: 40px;
+  background: #3C7980;
+  padding: 12px;
+  text-align: center;
+  color: #FFF;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.payment-logo {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background: #FFF;
+  border-radius: 50%;
+  box-shadow: 0 0 5px;
+  text-align: center;
+  line-height: 95px;
+}
+
+.payment-logo:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: #3C7980;
+  border-radius: 50%;
+}
+
+.payment-logo p {
+  color: #FFF;
+  position: relative;
+  font-size: 36px;
+}
+
+/* Add Items Page */
+
+.add_item_container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.add_item_form {
+  margin: 15px 30%;
+  border: 10px solid #FF704D; /* grapefruit */
+  border-style: ridge;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.add_item_form input, .add_item_form select, .add_item_form textarea {
+  display: block;
+  margin: 5%;
+  padding: 5px;
+}
+
+.add_item_form input[type="submit"] {
+  background: #FF471a; /* r-orange */
+  border: 0;
+  color: #000;
+  font-size: 1.2em;
+  border-radius: 4px;
+  align-items: center;
+  margin: 5% auto;
+  padding: 10px 30px;
+}
+
+.add_item_form input[type=submit]:hover {
+  color: #FFF;
+  cursor: pointer;
+}
+
+.finished {
+  background: #FF471a; /* r-orange */
+  border: 0;
+  color: #000;
+  font-size: 1.2em;
+  border-radius: 4px;
+  align-items: center;
+  margin: 5% auto;
+  padding: 10px 30px;
+}
+
+.finished:hover {
+  color: #FFF;
+  cursor: pointer;
+}
+
+.finished a {
+  text-decoration: none;
+}
+
+/* Donation Items Page */
+
+.d-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.d-h1 {
+  text-align: center;
+}
+
+.d-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.d-col {
+  padding: 20px;
+}
+
+.d-title {
+  font-size: 24px;
+  text-align: center;
+}
+
+.search-form {
+  border: 10px solid #ff704d; /* grapefruit */
+  border-style: ridge;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.search-form input, .search-form select, .search-form textarea {
+  display: block;
+  margin: 5%
+  padding: 5px;
+}
+
+.search-form button[type="submit"] {
+  background: #FF471a; /* r-orange */
+  border: 0;
+  color: #000;
+  font-size: 1.2em;
+  border-radius: 4px;
+  align-items: center;
+  margin: 5% auto;
+  padding: 10px 30px;
+}
+
+.search-form button[type=submit]:hover {
+  color: #FFF;
+  cursor: pointer;
+}
+
+.claims-form {
+  border: 10px solid #ff704d; /* grapefruit */
+  border-style: ridge;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.claims-form input, .claims-form select, .claims-form textarea {
+  display: block;
+  margin: 5%
+  padding: 5px;
+}
+
+.claims-form input[type="submit"] {
+  background: #FF471a; /* r-orange */
+  border: 0;
+  color: #000;
+  font-size: 1.2em;
+  border-radius: 4px;
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px 30px;
+}
+
+.claims-form input[type=submit]:hover {
+  color: #FBFBFF;
+  cursor: pointer;
+}
+
+.filter {
+  border: 5px solid #ff704d; /* grapefruit */
+  border-style: ridge;
+  border-radius: 4px;
+  margin: auto;
+}
+
+.d-list {
+  padding: 20px;
+  margin: 0;
+}
+
+.d-list span {
+  font-weight: bold;
+  color: #3C7980;
+  padding-right: 15px;
+  font-size: 24px;
+}
+
+.d-list p {
+  font-size: 24px; /* must be same as span */
+}
+
+/* [START maps_legend] */
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#legend {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid #000;
+}
+
+#legend h3 {
+  margin-top: 0;
+}
+
+#legend img {
+  vertical-align: middle;
+}
+
+.form-group {
+  border: 10px solid #ff704d; /* grapefruit */
+  border-style: ridge;
+  border-radius: 4px;
+  padding: 20px;
+}

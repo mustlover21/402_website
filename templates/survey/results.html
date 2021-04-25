@@ -1,0 +1,38 @@
+{% extends 'base_layout.html' %}
+{% block title %}Results View{% endblock %}
+{% block content %}
+
+    <div class="col-md-6 offset-md-3" style="padding: 5%;">
+        <div class="col-lg-12">
+
+            <h2 class="text-center">Responses for the question:<br /> <br />
+            "{{ result.question }}"</h2>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group" style="border: 10px solid #FF704D; border-style: ridge; padding: 15px;">
+                  <div>
+                      Responses for "{{ result.option_one }}": ({{ result.option_one_count }})
+                  </div>
+                  <div>
+                      Responses for "{{ result.option_two }}": ({{ result.option_two_count }})
+                  </div>
+                  <div>
+                      Responses for "{{ result.option_three }}": ({{ result.option_three_count }})
+                  </div>
+                  <div>
+                      Responses for "{{ result.option_four }}": ({{ result.option_four_count }})
+                  </div>
+            </div>
+            <p>Total Responses:  {{ result.total }}</p>
+
+            <hr />
+
+            <a href="{% url 'list' %}" class="btn btn-info">Return To List</a>
+        </form>
+
+
+    </div>
+
+{% endblock %}

@@ -2,18 +2,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+
+
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-site-verification" content="IUpq5v_b5xf3uMM3y1vAXFEgzreyeoDetMuNzTU5InU" />
+    <!-- bootstrap 4.0 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Icon for page tab -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <!-- font awesome stylesheet  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://happeafoodsmedia.s3-us-west-1.amazonaws.com/static/happeamap.js"></script>
+
+    <title>{% block title %}home{% endblock %}</title>
   </head>
   <body>
-
     <header>
      <div class="head-container">
        <div class="sm">
+         <!-- Register login Portal logout Links -->
+         {% if user.is_authenticated %}
+           <h5>Welcome {{user.username}}</h5>
+           <i class="far fa-user" style="color: black"></i>
+           <a href="{% url 'portal' %}">My Portal</a>
+           <a href="{% url 'accounts:logout' %}">Logout</a>
+         {% else %}
+           <i class="far fa-user" style="color: black"></i>
+           <a href="{% url 'accounts:register' %}">Register</a>
+           <a href="{% url 'accounts:login' %}">Login</a>
+        {% endif %}
+
+          <!-- Social Media Links -->
          <i class="fab fa-facebook-f" style="color: blue"></i>
          <i class="fab fa-twitter" style="color: lightblue"></i>
          <i class="fab fa-google-plus" style="color: green"></i>
@@ -21,149 +47,168 @@
          <i class="fab fa-youtube" style="color: red"></i>
        </div>
      </div>
-   </header>
-
-   <nav>
-     <div class="nav-container">
-       <div class="nav-columns">
-
-         <div class="logo">
-           <img src="{% static 'logo3.jpg' %}" class="img-logo" alt="peas">
-           <h1><span class="logo-color">HAP-PEA</span> FOODS</h1>
-         </div>
-
-         <div class="nav-links">
-           <ul>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About <i class="fas fa-caret-down"></i></a>
-              <ul>
-                <li><a href="{% url 'about' %}">About Us</a></li>
-                <li><a href="{% url 'partners' %}">Partners</a></li>
-              </ul>
+    </header>
+    <!-- Start NavBar -->
+    <nav class="navbar navbar-expand-md navbar-custom justify-content-evenly">
+      <a href="/" class="navbar-brand"><img src="{% static 'logo2.jpg' %}" class = navimage alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">
+        <i class="fa fa-bars fa-lg py-1 text-white"></i>
+      </button>
+      <div class="navbar-collapse collapse justify-content-center align-items-center w-100" id="navbarCustom">
+        <ul class="navbar-nav mx-auto text-center">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
-            <li><a href="{% url 'donations:donations' %}">Donate <i class="fas fa-caret-down"></i></a>
-              <ul>
-                <li><a href="{% url 'moneydonations' %}">Donate Money</a></li>
-                <li><a href="{% url 'donations:donations' %}">Donate Food</a></li>
-                <li><a href="{% url 'volunteer' %}">Volunteer</a></li>
-              </ul>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  About
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'about' %}">About Us</a>
+                    <a class="dropdown-item" href="{% url 'partners' %}">Partners</a>
+                </div>
             </li>
-            <li><a href="{% url 'find_help' %}">Find Help</a></li>
-            <li><a href="{% url 'facts' %}">Facts and Media <i class="fas fa-caret-down"></i></a>
-              <ul>
-                <li><a href="{% url 'find_help' %}">Hunger in the US</a></li>
-                <li><a href="{% url 'stories:stories' %}">Stories</a></li>
-                <li><a href="{% url 'facts' %}">Media</a></li>
-              </ul>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Donate
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'donations:search' %}">Search Donations</a>
+                    <a class="dropdown-item" href="{% url 'donations:donations' %}">Donate Food</a>
+                    <a class="dropdown-item" href="{% url 'volunteer' %}">Volunteer</a>
+                </div>
             </li>
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
-            </ul>
-         </div>
+            <li class="nav-item">
+                <a class="nav-link px-3" href="{% url 'find_help' %}">Find Help</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Events
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'events:create_event' %}">Create an Event</a>
+                    <a class="dropdown-item" href="{% url 'events:event_positions' %}">Volunteer for an Event</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Survey
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'list' %}">Survey Questions</a>
+                    <a class="dropdown-item" href="{% url 'qrCode' %}">Survey QR Code</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle px-3" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Facts and Media
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Hunger in the US</a>
+                    <a class="dropdown-item" href="{% url 'stories:stories' %}">Stories</a>
+                    <a class="dropdown-item" href="{% url 'facts' %}">Media</a>
+                </div>
+            </li>
 
-         <div class="search">
-           <form action="/action_page.php">
-             <input type="text" placeholder="Search.." name="search">
-             <button type="submit"><i class="fa fa-search"></i></button>
-           </form>
-         </div>
-
-         <div class="system">
-           <i class="far fa-user" style="color: black"></i>
-           <a href="{% url 'accounts:register' %}">Register</a>
-           {% csrf_token %}
-           <a href="{% url 'accounts:login' %}">Login</a>
-           {% csrf_token %}
-         </div>
-
-       </div>
-
-     </div>
-   </nav>
-
+        </ul>
+        <!-- Search Google Form -->
+        <form class="form-inline">
+           <script async src="https://cse.google.com/cse.js?cx=3555679745fbd16c3"></script>
+           <div class="gcse-search"></div>
+        </form>
+    </div>
+</nav>
     <!-- Start Wrapper -->
     <div class="wrapper_container">
+      <!-- messages -->
       {% if messages %}
         {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
+        <div class="alert alert-{{ message.tags }} text-center">
           {{ message }}
         </div>
         {% endfor %}
       {% endif %}
+
+      <!-- begin content for wrapper -->
       {% block content %}
+
       {% endblock %}
     </div>
     <!-- End wrapper -->
 
+    <!-- FOOTER -->
     <footer>
-          <div class="foot-container">
+      <div class="foot-container">
 
-            <div class="foot-columns">
-              <div class="about"> <!-- flex box 1 -->
-                <div class="statement">
-                  <img src="{% static 'logo2.jpg' %}" class="img-logo" alt="peas">
-                  <p> Hap Pea Foods is dedicated to ending food insecurity. We work tiredlessly with companies around the states to make sure there is enough food on the table for every household.  We do right by people and the planet. Together, we drive meaningful change in communities around the world.</p>
-                </div>
-                <div class="sm">
-                  <i class="fab fa-facebook-f" style="color: blue"></i>
-                  <i class="fab fa-twitter" style="color: lightblue"></i>
-                  <i class="fab fa-google-plus" style="color: green"></i>
-                  <i class="fab fa-instagram" style="color: grey"></i>
-                  <i class="fab fa-youtube" style="color: red"></i>
-                </div>
-              </div>
-
-              <div class="foot-links"> <!-- flex box 2 -->
-                <ul>
-                  <li><a href="{% url 'home' %}">Home</a></li>
-                  <li><a href="{% url 'about' %}">About</a></li>
-                  <li><a href="{% url 'partners' %}">Partners</a></li>
-                  <li><a href="{% url 'stories:stories' %}">Stories</a></li>
-                  <li><a href="{% url 'volunteer' %}">Volunteer</a></li>
-                  <li><a href="{% url 'find_help' %}">Find Help</a></li>
-                  <li><a href="{% url 'donations:donations' %}">Donate</a></li>
-                  <li><a href="{% url 'contact' %}">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="foot-links-2"><!-- flex box 3 -->
-                <ul>
-                  <li><a href="{% url 'survey' %}">Survey</a></li>
-                  <li><a href="{% url 'organizations' %}">Organizations</a></li>
-                  <li><a href="{% url 'facts' %}">Facts and Media</a></li>
-                  <li><a href="{% url 'portal' %}">My Portal</a></li>
-                  <li><a href="{% url 'createevent' %}">Create an Event</a></li>
-                  <li><a href="{% url 'mycalendar' %}">My Calendar</a></li>
-                  <li><a href="{% url 'non_disc_stmt' %}">Non Discrimination Statement</a></li>
-                </ul>
-              </div>
-
-              <div class="subscribe"> <!-- flex box 4 -->
-                <form action="/action_page.php">
-                  <input type="email" placeholder="Email..." name="email">
-                  <button type="submit">Subscribe</button>
-                </form>
-              </div>
-
-              <div class="contact"><!-- flex box 5 -->
-                <h2>Contact Us</h2>
-                <ul>
-                  <li><i class="fa fa-map-marked-alt" style="color: black"></i><a href="https://maps.google.com">Google Maps</a></li>
-                  <li><i class="fa fa-city" style="color: black"></i>1234 A Random Street, City, State, 00000</li>
-                  <li><i class="fa fa-phone" style="color: black"></i>(987) 654-3210</li>
-                  <li><i class="fa fa-envelope" style="color: black"></i> test@test.com</li>
-              </ul>
-              </div>
+        <div class="foot-columns">
+          <div class="about"> <!-- flex box 1 -->
+            <div class="statement">
+              <img src="{% static 'logo2.jpg' %}" class="img-logo" alt="peas">
+              <p> Hap Pea Foods is dedicated to ending food insecurity. We work tiredlessly with companies around the states to make sure there is enough food on the table for every household.  We do right by people and the planet. Together, we drive meaningful change in communities around the world.</p>
             </div>
-
-            <div class="foot-columns">
-              <div class="copyright">
-                <p>Copyright &copy; 2021 Website Created by David Boss, Suzanne Kaufman, and Mallory Dodds. All Rights Reserved.  <a href="{% url 'terms_cond' %}">Terms and Conditions</a><a href="{% url 'privacy' %}">Privacy Policy</a></p>
-              </div>
+            <div class="sm">
+              <i class="fab fa-facebook-f" style="color: blue"></i>
+              <i class="fab fa-twitter" style="color: lightblue"></i>
+              <i class="fab fa-google-plus" style="color: green"></i>
+              <i class="fab fa-instagram" style="color: grey"></i>
+              <i class="fab fa-youtube" style="color: red"></i>
             </div>
-
           </div>
-        </footer>
 
-    <script type="text/javascript"> /* scripts for slider */
+          <div class="foot-links"> <!-- flex box 2 -->
+            <ul>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'partners' %}">Partners</a></li>
+              <li><a href="{% url 'stories:stories' %}">Stories</a></li>
+              <li><a href="{% url 'facts' %}">Facts and Media</a></li>
+              <li><a href="{% url 'find_help' %}">Find Help</a></li>
+            </ul>
+          </div>
+          <div class="foot-links-2"><!-- flex box 3 -->
+            <ul>
+              <li><a href="{% url 'portal' %}">My Portal</a></li>
+              <li><a href="{% url 'list' %}">Survey Questions</a></li>
+              <li><a href="{% url 'volunteer' %}">Volunteer</a></li>
+              <li><a href="{% url 'events:create_event' %}">Create an Event</a></li>
+              <li><a href="{% url 'donations:donations' %}">Donate</a></li>
+              <li><a href="{% url 'donations:search' %}">Search Donations</a></li>
+              <li><a href="{% url 'organizations' %}">Organizations</a></li>
+
+            </ul>
+          </div>
+
+          <div class="subscribe"> <!-- flex box 4 -->
+            <form action="/action_page.php">
+              <input type="email" placeholder="Email..." name="email">
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+
+          <div class="contact"><!-- flex box 5 -->
+            <h2><a href="{% url 'contact' %}">Contact Us</a></h2>
+            <ul>
+              <li><i class="fa fa-map-marked-alt" style="color: black"></i><a href="https://maps.google.com">Google Maps</a></li>
+              <li><i class="fa fa-city" style="color: black"></i>1234 A Random Street, City, State, 00000</li>
+              <li><i class="fa fa-phone" style="color: black"></i>(987) 654-3210</li>
+              <li><i class="fa fa-envelope" style="color: black"></i> test@test.com</li>
+          </ul>
+          </div>
+        </div>
+
+        <div class="foot-columns">
+          <div class="copyright">
+            <p>Copyright &copy; 2021 Website Created by David Boss, Suzanne Kaufman, and Mallory Dodds. All Rights Reserved.
+              <br />
+              <a href="{% url 'terms_cond' %}">Terms and Conditions</a> | <a href="{% url 'privacy' %}">Privacy Policy</a> | <a href="{% url 'non_disc_stmt' %}">Non Discrimination Statement</a></p>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- /* scripts for slider */ -->
+    <script type="text/javascript">
       var counter = 1;
       setInterval(function(){
         document.getElementById('radio' + counter).checked = true;
